@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+}
+*{
+    font-family: "Inter", sans-serif !important;
+
+}
+
+input,
+textarea,
+select {
+  outline: none;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #c0c0c0;
+  box-shadow: none;
+}
+
+.no-global-style {
+  all: unset;
+  display: block;
+}
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+:root {
+  --background: #ffffff;
+  --color-black: #000000;
+  --color-theme1: #152A45;
+  --color-theme2: #1773E2;
+  --color-theme3: #718096;
+
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+  --font-size-5xl: 46px;
+  --font-size-6xl: 60px;
+  --font-size-7xl: 72px;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  font-size: var(--font-size-sm);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pop {
+  animation: pop 0.3s ease-in-out;
+}
