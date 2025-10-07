@@ -1252,7 +1252,7 @@ const TradeInfo = () => {
                                                                     const value = e.target.value;
                                                                     if (value === "") {
                                                                         handleInputChange("radius", "");
-                                                                    } else if (value.length <= 6) {
+                                                                    } else if (value.length <= 5) {
                                                                         const num = parseInt(value);
                                                                         if (!isNaN(num)) {
                                                                             handleInputChange("radius", num);

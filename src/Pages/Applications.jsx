@@ -217,7 +217,7 @@ function Applications() {
                 )}
             </div>
 
-            {jobs.length > 0 && totalPages > 1 && currentPage <= totalPages && (
+            {jobs.length > 0 && totalPages > 1 && currentPage <= totalPages && !loading && (
                 <DataTablePagination page={currentPage} setPage={handlePageChange} totalPages={totalPages} />
             )}
 
