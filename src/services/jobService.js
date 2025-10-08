@@ -5,15 +5,15 @@ import axios from "axios";
 const decodeToken = (token) => {
   try {
     if (!token) return null;
-    const payload = token.split(".")[1]; // get middle part of JWT
-    return JSON.parse(atob(payload));    // decode base64 JSON
+    const payload = token.split(".")[1];
+    return JSON.parse(atob(payload));    
   } catch (err) {
     console.error("Failed to decode token:", err);
     return null;
   }
 };
 
-const API_BASE = "https://002b7c7p-5000.inc1.devtunnels.ms/api/jobs";
+const API_BASE = "http://68.183.94.242:5001/api/jobs";
 
 export const CreateJob = async (payload) => {
   try {
@@ -26,6 +26,7 @@ export const CreateJob = async (payload) => {
     }
 
     // add user_id from token into payload
+    
     const jobPayload = {
       ...payload,
       user_id: decoded.id || decoded.user_id,
@@ -43,8 +44,6 @@ export const CreateJob = async (payload) => {
     console.error("Error creating job:", error);
     throw error.response?.data || error.message;
   }
-
-
 };
 
 export const GetJobs = async (page = 1, search = "") => {
@@ -222,7 +221,7 @@ export const MyProfile = async (userIdProp) => {
       if (!userId) throw new Error("Invalid token: user ID not found");
     }
 
-    const response = await axios.get(`https://002b7c7p-5000.inc1.devtunnels.ms/api/users/Select/${userId}`, {
+    const response = await axios.get(`http://68.183.94.242:5001/api/users/Select/${userId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -274,7 +273,7 @@ export const UpdateApplicationStatus = async (applicationID, status) => {
     if (!userId) throw new Error("Invalid token: user ID not found");
 
     const response = await axios.post(
-      `https://002b7c7p-5000.inc1.devtunnels.ms/api/jobs/applications/update/${applicationID}`,
+      `http://68.183.94.242:5001/api/jobs/applications/update/${applicationID}`,
       {
         application_status: status,
       },
@@ -340,7 +339,7 @@ export const PostUserAbuseReport = async (payload) => {
     };
 
     const response = await axios.post(
-      `https://002b7c7p-5000.inc1.devtunnels.ms/api/users/abusereport/insert`,
+      `http://68.183.94.242:5001/api/users/abusereport/insert`,
       finalPayload,
       {
         headers: { Authorization: `Bearer ${token}` },

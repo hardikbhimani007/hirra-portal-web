@@ -77,13 +77,14 @@ export default function BasicInfoModal({ onClose, userData, onSaveSuccess }) {
             fontWeight: 'bold',
         };
     });
-
+    const parsedTrade = typeof userData.trade === 'string' ? JSON.parse(userData.trade) : userData.trade;
+    const parsedSkill = typeof userData.skill === 'string' ? JSON.parse(userData.skill) : userData.skill;
     const [formData, setFormData] = useState({
         name: userData?.name || '',
         title: userData?.title || '',
         description: userData?.description || '',
-        trade: userData?.trade || [],
-        skill: userData?.skill || [],
+        trade: parsedTrade || [],
+        skill: parsedSkill || [],
         location: userData?.location || '',
         lat: userData?.lat || '',
         lng: userData?.lng || '',
@@ -108,8 +109,8 @@ export default function BasicInfoModal({ onClose, userData, onSaveSuccess }) {
                 name: userData.name || '',
                 title: userData.title || '',
                 description: userData.description || '',
-                trade: userData.trade || [],
-                skill: userData.skill || [],
+                trade: parsedTrade || [],
+                skill: parsedSkill || [],
                 location: userData.location || '',
                 lat: userData?.lat || '',
                 lng: userData?.lng || '',
@@ -181,7 +182,7 @@ export default function BasicInfoModal({ onClose, userData, onSaveSuccess }) {
     };
 
     const addTrade = (trade) => {
-        if (trade && !formData.trade.includes(trade)) {
+        if (trade && !formData.trade?.includes(trade)) {
             setFormData(prev => ({
                 ...prev,
                 trade: [...prev.trade, trade]
@@ -567,7 +568,7 @@ export default function BasicInfoModal({ onClose, userData, onSaveSuccess }) {
                                         Trade (Typeahead)
                                     </label>
                                     <div className="border border-gray-300 rounded-lg p-2 flex flex-wrap gap-2 min-h-[48px] items-center">
-                                        {formData.trade.map((trade) => (
+                                        {formData?.trade?.map((trade) => (
                                             <span
                                                 key={trade}
                                                 className="bg-[#FF5800] text-white px-3 py-1 rounded-full flex items-center text-sm"
@@ -582,7 +583,7 @@ export default function BasicInfoModal({ onClose, userData, onSaveSuccess }) {
                                             </span>
                                         ))}
 
-                                        {formData.trade.length < 5 && (
+                                        {formData?.trade?.length < 5 && (
                                             <div className="flex-grow min-w-[120px]">
                                                 <input
                                                     type="text"
@@ -613,7 +614,7 @@ export default function BasicInfoModal({ onClose, userData, onSaveSuccess }) {
                                         )}
                                     </div>
                                     <p className="text-sm text-gray-500">
-                                        Add up to 5 skills ({formData.trade.length}/5)
+                                        Add up to 5 skills ({formData?.trade?.length}/5)
                                     </p>
                                 </div>
 

@@ -148,7 +148,7 @@ function TradespersonJobs() {
                 rate: job.hourly_rate,
                 startDate: job.start_date,
                 duration: job.duration,
-                skills: job.skills || [],
+                skills: JSON.parse(job.skills) || [],
                 isLiked: job.saved,
                 postedBy: job.name,
                 type: job.is_greeen_project ? "Green Project" : "",

@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const SOCKET_URL = "https://002b7c7p-5000.inc1.devtunnels.ms/";
+const SOCKET_URL = "http://68.183.94.242:5001/";
 
 const socket = io(SOCKET_URL, {
   transports: ["websocket"],

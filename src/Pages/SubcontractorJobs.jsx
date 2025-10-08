@@ -113,7 +113,7 @@ function SubcontractorJobs() {
                     rate: job.hourly_rate,
                     startDate: job.start_date,
                     duration: job.duration,
-                    skills: job.skills,
+                    skills: JSON.parse(job.skills),
                     isLiked: job.saved,
                     application: job.applications_count,
                     postedsince: job.since_posted,

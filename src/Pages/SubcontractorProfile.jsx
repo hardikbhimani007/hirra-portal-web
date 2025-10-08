@@ -135,7 +135,7 @@ export default function SubcontractorProfile() {
     return (
         <div>
             <Navbar navItems={navItems} userRole={"subcontractor"} />
-            <div className="min-h-screen -mt-6 2xl:-mt-0">
+            <div className="-mt-6 2xl:-mt-0">
                 <div className="container mx-auto w-[90%] min-[1440px]:w-[60%] px-4 md:px-6 py-6 border border-gray-300 rounded-xl bg-white shadow-sm">
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-center">
                         <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-4 md:gap-6 items-center justify-items-center sm:justify-items-start">
@@ -238,7 +238,6 @@ export default function SubcontractorProfile() {
                                         ))}
                                     </div>
                                 </div> */}
-
                                 <div>
                                     <span className="text-[#718096] text-base font-semibold block mb-2">Availability</span>
                                     <p className="text-[#1A202C] text-base break-words">{availability}</p>

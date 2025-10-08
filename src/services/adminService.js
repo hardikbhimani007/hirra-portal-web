@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_BASE = "https://002b7c7p-5000.inc1.devtunnels.ms/api/admin";
+const API_BASE = "http://68.183.94.242:5001/api/admin";
 
 export const getjobmanagement = async (page = 1, search = "") => {
     try {
@@ -54,7 +54,7 @@ export const updatesubcontractor = async (payload) => {
             throw new Error("No authentication token found");
         }
 
-        const response = await axios.post(`https://002b7c7p-5000.inc1.devtunnels.ms/api/users/Update`, payload, {
+        const response = await axios.post(`http://68.183.94.242:5001/api/users/Update`, payload, {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ export const deletesubcontractor = async (id) => {
             throw new Error("No authentication token found");
         }
 
-        const response = await axios.delete(`https://002b7c7p-5000.inc1.devtunnels.ms/api/users/delete/${id}`, {
+        const response = await axios.delete(`http://68.183.94.242:5001/api/users/delete/${id}`, {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ export const deletejob = async (id) => {
             throw new Error("No authentication token found");
         }
 
-        const response = await axios.delete(`https://002b7c7p-5000.inc1.devtunnels.ms/api/jobs/delete/${id}`, {
+        const response = await axios.delete(`http://68.183.94.242:5001/api/jobs/delete/${id}`, {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
@@ -141,7 +141,7 @@ export const deletetradeperson = async (id) => {
             throw new Error("No authentication token found");
         }
 
-        const response = await axios.delete(`https://002b7c7p-5000.inc1.devtunnels.ms/api/users/delete/${id}`, {
+        const response = await axios.delete(`http://68.183.94.242:5001/api/users/delete/${id}`, {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
@@ -163,7 +163,7 @@ export const UpdateSubcontractorStatus = async (id, is_active) => {
         }
 
         const response = await axios.post(
-            `https://002b7c7p-5000.inc1.devtunnels.ms/api/users/Update`,
+            `http://68.183.94.242:5001/api/users/Update`,
             {
                 id: id,
                 is_active: is_active,
@@ -289,7 +289,7 @@ export const UpdateTradePersonStatus = async (id, is_active) => {
         }
 
         const response = await axios.post(
-            `https://002b7c7p-5000.inc1.devtunnels.ms/api/users/Update`,
+            `http://68.183.94.242:5001/api/users/Update`,
             {
                 id: id,
                 is_active: is_active,
@@ -319,7 +319,7 @@ export const UpdateCscsVerificationStatus = async (id, is_cscsfile_verified) => 
         }
 
         const response = await axios.post(
-            `https://002b7c7p-5000.inc1.devtunnels.ms/api/users/Update`,
+            `http://68.183.94.242:5001/api/users/Update`,
             {
                 id: id,
                 is_cscsfile_verified: is_cscsfile_verified,
@@ -348,7 +348,7 @@ export const UpdateTradeperson = async (payload) => {
         }
 
         const response = await axios.post(
-            `https://002b7c7p-5000.inc1.devtunnels.ms/api/users/Update`,
+            `http://68.183.94.242:5001/api/users/Update`,
             payload,
             {
                 headers: {

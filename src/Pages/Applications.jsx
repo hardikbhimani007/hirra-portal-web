@@ -200,7 +200,7 @@ function Applications() {
                                 postedBy: job?.Poster?.name,
                                 rate: job.hourly_rate,
                                 description: job.description,
-                                skills: job.skills,
+                                skills: JSON.parse(job.skills),
                                 location: job.location,
                                 appliedAt: job.since_applied,
                                 startDate: job.start_date,

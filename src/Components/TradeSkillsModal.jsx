@@ -106,12 +106,12 @@ export default function TradeSkillsModal({ isOpen, onClose, onSubmit, initialDat
 
   return (
     <div className="fixed inset-0 flex items-center justify-center p-4 z-50 bg-black/40" onClick={handleClose}>
-      <div className="bg-white rounded-2xl w-full max-w-md mx-auto shadow-xl" onClick={(e) => e.stopPropagation()}>
+      <div className="bg-white rounded-2xl w-full max-w-xl mx-auto shadow-xl" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900">
             {isEditMode ? 'Edit Trade & Skills' : 'Add Trade & Skills'}
           </h2>
-          <button onClick={handleClose} className="p-1 hover:bg-gray-100 rounded-full">
+          <button onClick={handleClose} className="p-1 hover:bg-gray-100 rounded-full cursor-pointer">
             <X className="w-6 h-6 text-gray-400" />
           </button>
         </div>
@@ -123,6 +123,7 @@ export default function TradeSkillsModal({ isOpen, onClose, onSubmit, initialDat
               type="text"
               placeholder="Enter trade name"
               value={formData.trade}
+              maxLength={60}
               onChange={(e) => setFormData(prev => ({ ...prev, trade: e.target.value }))}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             />
@@ -141,6 +142,7 @@ export default function TradeSkillsModal({ isOpen, onClose, onSubmit, initialDat
                 ref={inputRef}
                 type="text"
                 value={skillInput}
+                maxLength={60}
                 onChange={(e) => setSkillInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Type skill and press Enter"

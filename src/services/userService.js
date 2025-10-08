@@ -2,7 +2,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const API_BASE = "https://002b7c7p-5000.inc1.devtunnels.ms/api/users";
+const API_BASE = "http://68.183.94.242:5001/";
 
 // Helper function to decode JWT token
 const decodeToken = (token) => {
@@ -45,7 +45,7 @@ const getUserInfoFromToken = () => {
 export const insertUser = async (payload, userType) => {
   try {
     const response = await axios.post(
-      `${API_BASE}/Insert?type=${userType}`, // userType now defined
+      `${API_BASE}api/users/Insert?type=${userType}`, // userType now defined
       payload,
       {
         headers: {
@@ -57,7 +57,7 @@ export const insertUser = async (payload, userType) => {
     return response.data;
   } catch (error) {
     // toast.error("API Error: " + error.message);
-    // console.error("API Error:", error);
+    // console.error("API Error:", error); 
     throw error;
   }
 };
@@ -82,7 +82,7 @@ export const verifyUser = async ({ email, otp, phone }) => {
     if (phone) payload.phone = phone;
 
     const response = await axios.post(
-      `${API_BASE}/VerifyOTP`,
+      `${API_BASE}api/users/VerifyOTP`,
       payload
     );
 
@@ -118,7 +118,7 @@ export const CreateUsers = async (payload) => {
 
     // console.log("Final Payload:", finalPayload);
 
-    const response = await axios.post(`${API_BASE}/Create`, finalPayload, {
+    const response = await axios.post(`${API_BASE}api/users/Create`, finalPayload, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -157,7 +157,7 @@ export const subcontracorcreate = async (payload) => {
 
     // console.log("Final Subcontractor Payload:", finalPayload);
 
-    const response = await axios.post(`${API_BASE}/Create`, finalPayload, {
+    const response = await axios.post(`${API_BASE}api/users/Create`, finalPayload, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ export const subcontracorcreate = async (payload) => {
 
 export const loginUser = async (payload) => {
   try {
-    const response = await axios.post(`${API_BASE}/login`, payload, {
+    const response = await axios.post(`${API_BASE}api/users/login`, payload, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -195,7 +195,7 @@ export const fetchUserById = async (id) => {
     }
 
     
-    const response = await axios.get(`${API_BASE}/Select/${id}`, {
+    const response = await axios.get(`${API_BASE}api/users/Select/${id}`, {
       headers: {
         "Authorization": `Bearer ${token}`,
       },
@@ -222,7 +222,7 @@ export const smartroute = async () => {
       throw new Error("Unable to extract user ID from token");
     }
 
-    const response = await axios.get(`${API_BASE}/Select/${userInfo.id}`, {
+    const response = await axios.get(`${API_BASE}Select/${userInfo.id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -171,7 +171,7 @@ const JobManagement = () => {
                 showProfile={false}
             />
 
-            <div className="container mx-auto">
+            <div className="container mx-auto -mt-6 2xl:-mt-0">
                 <main className="w-full mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="container mx-auto flex items-center justify-between">
                         <p className="text-[#1A202C] text-lg md:text-2xl font-bold">

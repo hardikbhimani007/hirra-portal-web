@@ -118,7 +118,7 @@ function Profile() {
                         {!userIdFromState && (
                             <div className="mt-4 lg:mt-0 flex justify-center lg:justify-end">
                                 <button
-                                    className="text-black border border-gray-300 font-semibold px-6 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                                    className="text-black border border-gray-300 font-semibold px-6 py-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                                     onClick={() => setIsModalOpen(true)}
                                 >
                                     Edit Profile
@@ -134,32 +134,32 @@ function Profile() {
                             <h3 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">Basic Information</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 pb-6 border-b border-gray-300">
                                 <div className="flex flex-col font-semibold">
-                                    <span className="text-[#718096] text-base mb-1">Full Name</span>
-                                    <span className="text-[#1A202C] text-base break-words">{profile.name}</span>
+                                    <span className="text-[#718096] text-sm md:text-base mb-1">Full Name</span>
+                                    <span className="text-[#1A202C] text-sm md:text-base break-words">{profile.name}</span>
                                 </div>
 
                                 <div className="flex flex-col font-semibold">
-                                    <span className="text-[#718096] text-base mb-1">Travel Radius</span>
-                                    <span className="text-[#1A202C] text-base break-words">
+                                    <span className="text-[#718096] text-sm md:text-base mb-1">Travel Radius</span>
+                                    <span className="text-[#1A202C] text-sm md:text-base break-words">
                                         {profile.travelRadius ?? ""}
                                     </span>
                                 </div>
 
                                 <div className="flex flex-col font-semibold col-span-1 sm:col-span-2">
-                                    <span className="text-[#718096] text-base mb-1">Location</span>
-                                    <p className="text-[#1A202C] text-base break-words">{profile.location}</p>
+                                    <span className="text-[#718096] text-sm md:text-base mb-1">Location</span>
+                                    <p className="text-[#1A202C] text-sm md:text-base break-words">{profile.location}</p>
                                 </div>
 
                                 <div className="flex flex-col font-semibold col-span-1 sm:col-span-2">
-                                    <span className="text-[#718096] text-base mb-1">Email ID</span>
-                                    <p className="text-[#1A202C] text-base lowercase break-all">{profile.email}</p>
+                                    <span className="text-[#718096] text-sm md:text-base mb-1">Email ID</span>
+                                    <p className="text-[#1A202C] text-sm md:text-base lowercase break-all">{profile.email}</p>
                                 </div>
                             </div>
                             <h3 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">Verification & Credential</h3>
 
                             <div className="flex flex-wrap gap-3 md:gap-6 mb-6 pb-6 border-b border-gray-300">
                                 <div className="flex-1 flex flex-col font-semibold min-w-[100px]">
-                                    <span className="text-[#718096] text-base">CSCS Card</span>
+                                    <span className="text-[#718096] text-sm md:text-base">CSCS Card</span>
                                     <span className="flex items-center text-[#1A202C] text-sm md:text-base gap-2">
                                         {verification.cscsCard === "Verified" && <FaCircleCheck className="text-green-600" />}
                                         {verification.cscsCard}
@@ -167,12 +167,12 @@ function Profile() {
                                 </div>
 
                                 <div className="flex-1 flex flex-col font-semibold min-w-[100px]">
-                                    <span className="text-[#718096] text-base">Job Saved</span>
+                                    <span className="text-[#718096] text-sm md:text-base">Job Saved</span>
                                     <span className="text-[#1A202C] text-sm md:text-base">{verification.jobsSaved}</span>
                                 </div>
 
                                 <div className="flex-1 flex flex-col font-semibold min-w-[100px]">
-                                    <span className="text-[#718096] text-base">Application</span>
+                                    <span className="text-[#718096] text-sm md:text-base">Application</span>
                                     <span className="text-[#1A202C] text-sm md:text-base">{verification.applications}</span>
                                 </div>
                             </div>
@@ -180,9 +180,9 @@ function Profile() {
 
                             <div className="grid gap-4 md:gap-6">
                                 <div>
-                                    <span className="text-[#718096] text-base font-semibold block mb-2">Skills</span>
+                                    <span className="text-[#718096] text-sm md:text-base font-semibold block mb-2">Skills</span>
                                     <div className="flex flex-wrap gap-2">
-                                        {skills.map((skill, index) => (
+                                        {JSON.parse(skills).map((skill, index) => (
                                             <span className="bg-gray-100 text-gray-500 px-3 py-2 rounded-full text-sm flex items-center justify-center break-words break-all">
                                                 {skill}
                                             </span>
@@ -191,8 +191,8 @@ function Profile() {
                                 </div>
 
                                 <div>
-                                    <span className="text-[#718096] text-base font-semibold block mb-2">Availability</span>
-                                    <p className="text-[#1A202C] text-base break-words">{availability}</p>
+                                    <span className="text-[#718096] text-sm md:text-base font-semibold block mb-2">Availability</span>
+                                    <p className="text-[#1A202C] text-sm md:text-base break-words">{availability}</p>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@ function Profile() {
                                 </span>
                             </div>
 
-                            <div className="text-[#718096] text-base font-medium leading-relaxed  break-all">
+                            <div className="text-[#718096] text-sm md:text-base font-medium leading-relaxed break-all">
                                 <p>{job.description}</p>
                             </div>
                         </div>

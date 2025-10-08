@@ -114,8 +114,8 @@ const Categories = () => {
                 showProfile={false}
             />
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between py-4">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-6 2xl:-mt-0">
+                <div className="flex items-center justify-between">
                     <p className="text-[#1A202C] text-lg md:text-2xl font-bold">Categories</p>
                     <button
                         className="py-2 px-3 md:py-2 md:px-6 rounded-lg text-white bg-[#152A45] text-sm md:text-base"
@@ -125,7 +125,7 @@ const Categories = () => {
                     </button>
                 </div>
 
-                <div className="overflow-x-auto rounded-lg">
+                <div className="overflow-x-auto rounded-lg py-4">
                     <table className="w-full">
                         <thead className="bg-[#F6F6F7]">
                             <tr>

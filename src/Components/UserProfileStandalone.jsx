@@ -65,7 +65,7 @@ export default function SubcontractorProfileStandalone({ user_id }) {
 
         try {
             const res = await PostUserAbuseReport(payload);
-            console.log("Report submitted:", res);
+            // console.log("Report submitted:", res);
             toast.success("Report submitted successfully!");
             setShowReportModal(false);
             setSelectedReason("");
@@ -160,25 +160,25 @@ export default function SubcontractorProfileStandalone({ user_id }) {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 pb-6 border-b border-gray-300">
                             <div className="flex flex-col font-semibold">
-                                <span className="text-[#718096] text-base mb-1">Full Name</span>
-                                <span className="text-[#1A202C] text-base break-words">{profile.name}</span>
+                                <span className="text-[#718096] text-sm md:text-base mb-1">Full Name</span>
+                                <span className="text-[#1A202C] text-sm md:text-base break-words">{profile.name}</span>
                             </div>
 
                             <div className="flex flex-col font-semibold">
-                                <span className="text-[#718096] text-base mb-1">Travel Radius</span>
-                                <span className="text-[#1A202C] text-base break-words">
+                                <span className="text-[#718096] text-sm md:text-base mb-1">Travel Radius</span>
+                                <span className="text-[#1A202C] text-sm md:text-base break-words">
                                     {profile.travelRadius ?? ""}
                                 </span>
                             </div>
 
                             <div className="flex flex-col font-semibold col-span-1 sm:col-span-2">
-                                <span className="text-[#718096] text-base mb-1">Location</span>
-                                <p className="text-[#1A202C] text-base break-words">{profile.location}</p>
+                                <span className="text-[#718096] text-sm md:text-base mb-1">Location</span>
+                                <p className="text-[#1A202C] text-sm md:text-base break-words">{profile.location}</p>
                             </div>
 
                             <div className="flex flex-col font-semibold col-span-1 sm:col-span-2">
-                                <span className="text-[#718096] text-base mb-1">Email ID</span>
-                                <p className="text-[#1A202C] text-base lowercase break-all">{profile.email}</p>
+                                <span className="text-[#718096] text-sm md:text-base mb-1">Email ID</span>
+                                <p className="text-[#1A202C] text-sm md:text-base lowercase break-all">{profile.email}</p>
                             </div>
                         </div>
 
@@ -209,7 +209,7 @@ export default function SubcontractorProfileStandalone({ user_id }) {
                             <div>
                                 <span className="text-[#718096] text-base font-semibold block mb-2">Skills</span>
                                 <div className="flex flex-wrap gap-2">
-                                    {skills.map((skill, index) => (
+                                    {JSON.parse(skills)?.map((skill, index) => (
                                         <span className="bg-gray-100 text-gray-500 px-3 py-2 rounded-full text-sm flex items-center justify-center break-words break-all">
                                             {skill}
                                         </span>
